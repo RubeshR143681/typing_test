@@ -74,17 +74,16 @@
         fetch("https://apis.ccbp.in/random-quote", options)
           .then(function (response) {
             return response.json();
+            let count = 0;
+            intervalId = setInterval(function () {
+              count = count + 1;
+              timerEl.textContent = count;
+            }, 1000);
           })
           .then(function (jsondata) {
             displayparaEl.textContent = jsondata.content;
             spinnerEl.classList.add("d-none");
           });
-
-        let count = 0;
-        intervalId = setInterval(function () {
-          count = count + 1;
-          timerEl.textContent = count;
-        }, 1000);
 
         subtnEl.addEventListener("click", function () {
           clearInterval(intervalId);
