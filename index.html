@@ -80,6 +80,12 @@
             spinnerEl.classList.add("d-none");
           });
 
+        let count = 0;
+        intervalId = setInterval(function () {
+          count = count + 1;
+          timerEl.textContent = count;
+        }, 1000);
+
         subtnEl.addEventListener("click", function () {
           clearInterval(intervalId);
           let texterevale = textereEl.value;
